@@ -1,7 +1,14 @@
 .ball {
-    width: 2.5vw;
-    height: 2.5vw;
-    background-color: gray;
+    --x: 50;
+    --y: 50;
+
+    position: absolute;
+    left: calc(var(--x) *1vw);
+    top: calc(var(--y) *1vh);
+    transform: translate(-50%, -50%);
+    width: 2.5vh;
+    height: 2.5vh;
+    background-color: aliceblue;
     border-radius: 50%;
-    
+
 }

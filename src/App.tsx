@@ -11,8 +11,8 @@ function App () {
     return (
         <div className={ classes.gameWrapper } >
             <Scoreboard />
-            <Paddle />
-            <Paddle />
+            <Paddle position='left' />
+            <Paddle position='right'/>
             <Ball />
         </div>
     );

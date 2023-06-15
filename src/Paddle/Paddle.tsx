@@ -1,8 +1,18 @@
-import React from 'react';
+// Styles
+import classes from './Paddle.module.css';
 
-const Paddle = () => {
+interface Props {
+    position: string;
+}
+
+const Paddle = ( { position }: Props ) => {
     return (
-        <div>Paddle</div>
+        <div
+            className={
+                `${ classes.paddle } 
+                ${ position === 'left' ? classes.left : classes.right }`
+            }
+        />
     );
 };
 
