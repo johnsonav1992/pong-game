@@ -18,7 +18,7 @@ export const useAnimationFrame = ( callback: any ) => {
             callback( deltaTime );
         }
         previousTimeRef.current = time;
-        requestRef.current = window.requestAnimationFrame( animate );
+        requestRef.current = requestAnimationFrame( animate );
     };
 
     useEffect( () => {
