@@ -1,8 +1,23 @@
-import React from 'react';
+// Types
+import { Scores } from '../types/types';
 
-const Scoreboard = () => {
+// Styles
+import classes from './Scoreboard.module.css';
+
+interface Props {
+    scores: Scores
+}
+
+const Scoreboard = ( { scores }: Props ) => {
     return (
-        <div>Scoreboard</div>
+        <div className={ classes.wrapper }>
+            <div className={ `${ classes.score } ${ classes.player }` }>
+                { scores.playerScore }
+            </div>
+            <div className={ classes.score }>
+                { scores.computerScore }
+            </div>
+        </div>
     );
 };
 
