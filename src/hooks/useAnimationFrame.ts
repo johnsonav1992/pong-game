@@ -4,8 +4,8 @@ import {
 } from 'react';
 
 /**
- * This hook is for starting and using an animation loop in react
- * @param callback - the callback to be excued on every animation frame
+ * This hook is for starting and using an animation loop in React
+ * @param callback - the callback to be executed on every animation frame
  */
 
 export const useAnimationFrame = ( callback: any ) => {
