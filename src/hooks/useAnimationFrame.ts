@@ -3,6 +3,11 @@ import {
     , useRef
 } from 'react';
 
+/**
+ * This hook is for starting and using an animation loop in react
+ * @param callback - the callback to be excued on every animation frame
+ */
+
 export const useAnimationFrame = ( callback: any ) => {
     const requestRef = useRef<number>();
     const previousTimeRef = useRef<number>();
