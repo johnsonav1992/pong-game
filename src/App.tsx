@@ -13,9 +13,11 @@ import Scoreboard from './Scoreboard/Scoreboard';
 // Types
 import { Scores } from './types/types';
 
+// Hooks
+import { useAnimationFrame } from './hooks/useAnimationFrame';
+
 // Styles
 import classes from './App.module.css';
-import { useAnimationFrame } from './hooks/useAnimationFrame';
 
 const initScores: Scores = {
     playerScore: 0
