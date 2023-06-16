@@ -1,3 +1,9 @@
+import {
+    useEffect
+    , useRef
+    , useState
+} from 'react';
+
 // Components
 import Ball from './Ball/Ball';
 import Paddle from './Paddle/Paddle';
@@ -8,7 +14,7 @@ import { Scores } from './types/types';
 
 // Styles
 import classes from './App.module.css';
-import { useState } from 'react';
+import { useAnimationFrame } from './hooks/useAnimationFrame';
 
 const initScores: Scores = {
     playerScore: 0
@@ -18,12 +24,16 @@ const initScores: Scores = {
 function App () {
     const [ scores, setScores ] = useState<Scores>( initScores );
 
+    const ballRef = useRef();
+
+    // useAnimationFrame( ( delta: number ) => console.log( delta ) );
+
     return (
         <div className={ classes.gameWrapper } >
             <Scoreboard scores={ scores }/>
             <Paddle position='left' />
             <Paddle position='right'/>
-            <Ball />
+            <Ball ref={ ballRef }/>
         </div>
     );
 }
