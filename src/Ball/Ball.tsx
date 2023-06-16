@@ -4,6 +4,8 @@ import { LegacyRef, forwardRef } from 'react';
 import classes from './Ball.module.css';
 
 const Ball = forwardRef( ( _, ref: LegacyRef<HTMLDivElement> ) => {
+
+    console.log( ref );
     return (
         <div
             className={ classes.ball }

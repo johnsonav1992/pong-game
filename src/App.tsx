@@ -27,7 +27,7 @@ function App () {
 
     const ballRef = createRef<HTMLDivElement>();
 
-    useAnimationFrame( ( delta: number ) => console.log( delta ) );
+    // useAnimationFrame( ( delta: number ) => console.log( delta ) );
 
     return (
         <div className={ classes.gameWrapper } >

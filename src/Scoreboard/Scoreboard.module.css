@@ -3,13 +3,13 @@
 }
 
 .score {
-    font-size: 3rem;
+    font-size: 5vh;
     font-family: 'Courier New', Courier, monospace;
     font-weight: 500;
     color: white;
-    padding: 1rem;
+    padding: 1vh;
     height: fit-content;
-    margin-top: .25rem;
+    margin-top: .25vh;
 }
 
 .player {
