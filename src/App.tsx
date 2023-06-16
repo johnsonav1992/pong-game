@@ -1,4 +1,5 @@
 import {
+    createRef,
     useEffect
     , useRef
     , useState
@@ -24,7 +25,7 @@ const initScores: Scores = {
 function App () {
     const [ scores, setScores ] = useState<Scores>( initScores );
 
-    const ballRef = useRef();
+    const ballRef = createRef<HTMLDivElement>();
 
     // useAnimationFrame( ( delta: number ) => console.log( delta ) );
 

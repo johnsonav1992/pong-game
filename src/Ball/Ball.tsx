@@ -1,9 +1,9 @@
-import { forwardRef } from 'react';
+import { LegacyRef, forwardRef } from 'react';
 
 // Styles
 import classes from './Ball.module.css';
 
-const Ball = forwardRef( ( _, ref ) => {
+const Ball = forwardRef( ( _, ref: LegacyRef<HTMLDivElement> ) => {
     return (
         <div
             className={ classes.ball }
