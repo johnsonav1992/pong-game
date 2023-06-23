@@ -1,8 +1,4 @@
-import {
-    RefObject,
-    useRef
-    , useState
-} from 'react';
+import { useState } from 'react';
 
 // Components
 import Ball from './Ball/Ball';
@@ -25,63 +21,16 @@ const initScores: Scores = {
 
 function App () {
     const [ scores, setScores ] = useState<Scores>( initScores );
+    const [ delta, setDelta ] = useState<number>( 0 );
 
-    const ballRef = useRef<HTMLDivElement>( null );
-
-    const setX = ( ball: HTMLDivElement, value: number ) => {
-        ball.style.setProperty( '--x', value.toString() );
-    };
-
-    const setY = ( ball: HTMLDivElement, value: number ) => {
-        ball.style.setProperty( '--y', value.toString() );
-    };
-
-    const updateBall = ( ballRef: RefObject<HTMLDivElement>, delta: number ) => {
-        const ball = ballRef.current;
-        if ( ball ) {
-            const x = parseFloat( getComputedStyle( ball ).getPropertyValue( '--x' ) );
-            const y = parseFloat( getComputedStyle( ball ).getPropertyValue( '--y' ) );
-
-            setX( ball, 5 );
-            setY( ball, 8 );
-
-        }
-    };
-
-    const getRandomNumBetween = ( min: number, max: number ) => {
-        return Math.random() * ( max - min ) + min;
-    };
-
-    const resetBall = ( ballRef: RefObject<HTMLDivElement> ) => {
-        const ball = ballRef.current;
-        if ( ball ) {
-            const x = parseFloat( getComputedStyle( ball ).getPropertyValue( '--x' ) );
-            const y = parseFloat( getComputedStyle( ball ).getPropertyValue( '--y' ) );
-
-            setX( ball, 50 );
-            setY( ball, 50 );
-            let direction = { x: 0, y: 0 };
-            const something = Math.abs( direction.x ) <= 2 || Math.abs( direction.x ) >= .9;
-            while ( Math.abs( direction.x ) <= 2 || Math.abs( direction.x ) >= .9 ) {
-                const heading = getRandomNumBetween( 0, 2 * Math.PI );
-                direction = { x: Math.cos( heading ), y: Math.sin( heading ) };
-            }
-            console.log( direction );
-
-        }
-    };
-
-    // updateBall( ballRef, 3 );
-    // resetBall( ballRef );
-
-    // useAnimationFrame( ( delta: number ) => console.log( delta ) );
+    useAnimationFrame( ( delta: number ) => setDelta( delta ) );
 
     return (
         <div className={ classes.gameWrapper } >
             <Scoreboard scores={ scores }/>
             <Paddle position='left' />
             <Paddle position='right'/>
-            <Ball ref={ ballRef }/>
+            <Ball delta={ delta }/>
         </div>
     );
 }
